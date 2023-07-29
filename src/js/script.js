@@ -9,6 +9,10 @@ personagens.forEach((personagem) => {
     // console.log(personagem);
     personagem.addEventListener('mouseenter', () => {
         // console.log('mouse entrou na li');
+
+        if(window.innerWidth < 450){
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
         
         /* Passo 3 */
         const personagemSelecionado = document.querySelector('.selecionado');
