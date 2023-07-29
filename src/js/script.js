@@ -1,9 +1,5 @@
 /* Script.js */
 
-
-
-
-
 /* Passo 1 */
 const personagens = document.querySelectorAll('.personagem');
 
@@ -20,6 +16,25 @@ personagens.forEach((personagem) => {
         personagemSelecionado.classList.remove('selecionado');
         
         personagem.classList.add('selecionado');
+
+        /* Passo 4 */
+        const imagemPersonagemGrande = document.querySelector('.personagem-grande');
+        // console.log(imagemPersonagemGrande);
+        
+        /* Passo 5 */
+        const idPersonagem = personagem.attributes.id.value;
+        // console.log(idPersonagem);
+        // console.log(idPersonagemSelecionado);
+        imagemPersonagemGrande.src = `./src/img/card-${idPersonagem}.png`;
+
+
+        /* Passo 6 */
+        const nomePersonagem = document.getElementById('nome-personagem');
+        nomePersonagem.innerText = personagem.getAttribute('data-name');
+
+        /* Passo 7 */
+        const descricaoPersonagem = document.getElementById('descricao-personagem');
+        descricaoPersonagem.innerText = personagem.getAttribute('data-description');
     });
     
 }); 
@@ -76,14 +91,14 @@ seleciona-lo
 
 OBJETIVO 2 - quando passar o mouse em cima do personagem na listagem, trocar a 
 imagem, o nome e a descrição do personagem grande
-    Passo 1 - pegar o elemento do personagem grande para adicionar as informações 
+    Passo 4 - pegar o elemento do personagem grande para adicionar as informações 
         neles
 
-    Passo 2 - alterar a imagem do personagem grande
+    Passo 5 - alterar a imagem do personagem grande
         
-    Passo 3 - alterar a nome do personagem grande
+    Passo 6 - alterar a nome do personagem grande
     
-    Passo 4 - alterar a descrição do personagem grande
+    Passo 7 - alterar a descrição do personagem grande
 
 */
 
