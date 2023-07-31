@@ -6,44 +6,53 @@ const personagens = document.querySelectorAll('.personagem');
 
 /* Passo 2 */
 personagens.forEach((personagem) => {
-    // console.log(personagem);
     personagem.addEventListener('mouseenter', () => {
-        // console.log('mouse entrou na li');
 
         if(window.innerWidth < 450){
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
         
         /* Passo 3 */
-        const personagemSelecionado = document.querySelector('.selecionado');
-        // console.log(personagemSelecionado);
-        personagemSelecionado.classList.remove('selecionado');
+        removerSelecaoDoPersonagem();
         
         personagem.classList.add('selecionado');
 
-        /* Passo 4 */
-        const imagemPersonagemGrande = document.querySelector('.personagem-grande');
-        // console.log(imagemPersonagemGrande);
-        
-        /* Passo 5 */
-        const idPersonagem = personagem.attributes.id.value;
-        // console.log(idPersonagem);
-        // console.log(idPersonagemSelecionado);
-        imagemPersonagemGrande.src = `./src/img/card-${idPersonagem}.png`;
+        /* Passo 4, 5 */
+        alterarImagemPersonagemSelecionado(personagem);
 
 
         /* Passo 6 */
-        const nomePersonagem = document.getElementById('nome-personagem');
-        nomePersonagem.innerText = personagem.getAttribute('data-name');
+        alterarNomePersonagemSelecionado(personagem);
 
         /* Passo 7 */
-        const descricaoPersonagem = document.getElementById('descricao-personagem');
-        descricaoPersonagem.innerText = personagem.getAttribute('data-description');
+        alterarDescricaoPersonagem(personagem);
     });
     
 }); 
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+function alterarDescricaoPersonagem(personagem) {
+    const descricaoPersonagem = document.getElementById('descricao-personagem');
+    descricaoPersonagem.innerText = personagem.getAttribute('data-description');
+}
+
+function alterarNomePersonagemSelecionado(personagem) {
+    const nomePersonagem = document.getElementById('nome-personagem');
+    nomePersonagem.innerText = personagem.getAttribute('data-name');
+}
+
+function alterarImagemPersonagemSelecionado(personagem) {
+    const imagemPersonagemGrande = document.querySelector('.personagem-grande');
+    /* Passo 5 */
+    const idPersonagem = personagem.attributes.id.value;
+    imagemPersonagemGrande.src = `./src/img/card-${idPersonagem}.png`;
+}
+
+function removerSelecaoDoPersonagem() {
+    const personagemSelecionado = document.querySelector('.selecionado');
+    personagemSelecionado.classList.remove('selecionado');
+}
+
 
 
 
